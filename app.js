@@ -19,8 +19,8 @@ var app = express();
 var services = JSON.parse(process.env.VCAP_SERVICES);
 
 var tone_analyzer = new ToneAnalyzerV3({
-    username: services.tone_analyzer.credentials.username,
-    password: services.tone_analyzer.credentials.password
+    username: services.tone_analyzer[0].credentials.username,
+    password: services.tone_analyzer[0].credentials.password
 });
 
 app.use(bodyParser.urlencoded({
