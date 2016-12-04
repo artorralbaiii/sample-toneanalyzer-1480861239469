@@ -16,11 +16,11 @@ var cfenv = require('cfenv');
 
 // create a new express server
 var app = express();
+var services = JSON.parse(process.env.VCAP_SERVICES);
 
 var tone_analyzer = new ToneAnalyzerV3({
-    username: 'a6ea3c1e-721e-461d-a15d-adc1ce602d34',
-    password: '8xfOjRGzuSYG',
-    version_date: '2016-05-19'
+    username: services.tone_analyzer.credentials.username,
+    password: services.tone_analyzer.credentials.password
 });
 
 app.use(bodyParser.urlencoded({
