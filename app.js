@@ -20,7 +20,8 @@ var services = JSON.parse(process.env.VCAP_SERVICES);
 
 var tone_analyzer = new ToneAnalyzerV3({
     username: services.tone_analyzer[0].credentials.username,
-    password: services.tone_analyzer[0].credentials.password
+    password: services.tone_analyzer[0].credentials.password,
+    version_date: '2016-05-19'
 });
 
 app.use(bodyParser.urlencoded({
